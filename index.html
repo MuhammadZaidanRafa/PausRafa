@@ -401,8 +401,8 @@
   <!-- MUSIC PLAYER -->
   <div class="music-player">
 
-    <button id="music-btn" class="btn">
-      🎵 Putar Musik Paus
+    <button id="music-btn" class="btn" title="Putar Musik Paus" style="font-size:1.4rem; padding:0.4rem 0.7rem; line-height:1;">
+      🎵
     </button>
 
     <audio id="bg-music" loop>
@@ -428,7 +428,7 @@
 
         music.play();
 
-        musicBtn.innerHTML = "⏸ Pause Musik";
+        musicBtn.innerHTML = "⏸";
 
         isPlaying = true;
 
@@ -436,7 +436,7 @@
 
         music.pause();
 
-        musicBtn.innerHTML = "🎵 Putar Musik Paus";
+        musicBtn.innerHTML = "🎵";
 
         isPlaying = false;
 
