@@ -23,7 +23,7 @@ header {
 }
 
 header h1 {
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   margin-bottom: 10px;
 }
 
@@ -32,7 +32,9 @@ header p {
 }
 
 nav {
-  background: #003f63;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  background: rgba(0, 63, 99, 0.95);
   padding: 12px;
   text-align: center;
   position: sticky;
@@ -51,6 +53,9 @@ nav a:hover {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 90%;
   max-width: 1000px;
   margin: 30px auto;
@@ -77,6 +82,22 @@ img {
 
 ul {
   margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+  nav a {
+    display: inline-block;
+    margin: 8px;
+    font-size: 0.9rem;
+  }
+
+  section {
+    padding: 18px;
+  }
+
+  header {
+    padding: 40px 15px;
+  }
 }
 
 footer {
@@ -107,14 +128,36 @@ footer {
 <body>  <header>
     <h1>Karya Ilmiah Tentang Paus</h1>
     <p><strong>Kelompok Paus</strong></p>
-    <p>Anggota: Rafa, Faisal, Satrio</p>
+    <p>Anggota: Rafa, Faisal, Satrio, Awan</p>
     <p>Penelitian Singkat Mengenai Kehidupan dan Peran Paus di Laut</p>
   </header>  <nav>
     <a href="#pendahuluan">Pendahuluan</a>
     <a href="#isi">Isi</a>
     <a href="#kesimpulan">Kesimpulan</a>
     <a href="#referensi">Referensi</a>
-  </nav>  <div class="container"><section id="pendahuluan">
+  </nav>  <div class="container"><section id="rumusan">
+  <h2>Rumusan Masalah</h2>
+  <ol>
+    <li>Apa yang dimaksud dengan paus dan bagaimana ciri-ciri utamanya?</li>
+    <li>Bagaimana habitat serta pola kehidupan paus di lautan?</li>
+    <li>Apa saja ancaman yang menyebabkan penurunan populasi paus?</li>
+    <li>Bagaimana peran paus dalam menjaga keseimbangan ekosistem laut?</li>
+    <li>Upaya apa saja yang dapat dilakukan manusia untuk melestarikan paus?</li>
+  </ol>
+</section>
+
+<section id="tujuan">
+  <h2>Tujuan Penelitian</h2>
+  <ol>
+    <li>Mengetahui pengertian dan ciri-ciri paus.</li>
+    <li>Memahami habitat dan perilaku paus di laut.</li>
+    <li>Menjelaskan ancaman terhadap keberlangsungan hidup paus.</li>
+    <li>Mengetahui pentingnya paus bagi ekosistem laut.</li>
+    <li>Meningkatkan kesadaran tentang pelestarian paus.</li>
+  </ol>
+</section>
+
+<section id="pendahuluan">
   <h2>Pendahuluan</h2>
   <p>
     Paus merupakan mamalia laut terbesar di dunia yang memiliki peran penting dalam menjaga keseimbangan ekosistem laut.
@@ -169,6 +212,6 @@ footer {
 </section>
 
   </div>  <footer>
-    <p>© 2026 Karya Ilmiah Paus | Dibuat dengan HTML & CSS</p>
+    <p>© 2026 Karya Ilmiah Paus | Dibuat dengan HTML & CSS Buatan Rafa dan Kelompok Paus</p>
   </footer></body>
 </html>
