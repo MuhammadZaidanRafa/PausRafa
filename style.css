@@ -1,6 +1,6 @@
 /* =========================================================
    ULTRA CINEMATIC OCEAN CSS — UPDATED EDITION
-   Supports BAB I / II / III structure + Full Responsive
+   Supports BAB I / II / III structure + Daftar Isi + Full Responsive
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -526,6 +526,143 @@ section > div > ul li {
 }
 
 /* =========================================================
+   DAFTAR ISI (TOC)
+========================================================= */
+
+.toc-section {
+  /* inherits section styles, override hover lift slightly */
+}
+
+.toc-section:hover {
+  transform: translateY(-3px);
+}
+
+.toc-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Each BAB group */
+.toc-group {
+  position: relative;
+  padding: 0;
+  margin-bottom: 8px;
+}
+
+.toc-group:last-child {
+  margin-bottom: 0;
+}
+
+/* BAB label header */
+.toc-bab-label {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--white);
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid rgba(0, 229, 255, 0.15);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 0.01em;
+}
+
+.toc-bab-label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--aqua));
+  flex-shrink: 0;
+}
+
+/* TOC item list */
+.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.toc-list li {
+  margin: 0;
+}
+
+/* TOC link row */
+.toc-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 13px 24px 13px 40px;
+  border-radius: 14px;
+  margin: 3px 0;
+  transition: background 0.25s ease, padding-left 0.25s ease;
+  gap: 6px;
+}
+
+.toc-link:hover {
+  background: rgba(0, 229, 255, 0.07);
+  padding-left: 48px;
+}
+
+.toc-link:hover .toc-title {
+  color: var(--cyan);
+}
+
+.toc-title {
+  color: #cce8f4;
+  font-size: 0.96rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+/* animated dot-leader */
+.toc-dots {
+  flex: 1;
+  min-width: 20px;
+  height: 1px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 10px;
+}
+
+.toc-dots::after {
+  content: "· · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · · ·";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: rgba(0, 229, 255, 0.25);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.toc-page {
+  color: var(--cyan);
+  font-size: 0.92rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: 'Playfair Display', serif;
+  min-width: 24px;
+  text-align: right;
+  opacity: 0.85;
+}
+
+/* divider between groups */
+.toc-group + .toc-group::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.07), transparent);
+  margin: 6px 24px;
+}
+
+/* =========================================================
    DAFTAR PUSTAKA
 ========================================================= */
 
@@ -614,6 +751,7 @@ section { animation-delay: 0.05s; }
 section:nth-child(2) { animation-delay: 0.10s; }
 section:nth-child(3) { animation-delay: 0.15s; }
 section:nth-child(4) { animation-delay: 0.20s; }
+section:nth-child(5) { animation-delay: 0.25s; }
 
 /* =========================================================
    RESPONSIVE — TABLET (<=1024px)
@@ -623,6 +761,8 @@ section:nth-child(4) { animation-delay: 0.20s; }
   section { padding: 40px 40px; }
   section > div { padding: 26px 28px; }
   .card-grid { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .toc-link { padding: 12px 20px 12px 34px; }
+  .toc-link:hover { padding-left: 42px; }
 }
 
 /* =========================================================
@@ -665,6 +805,12 @@ section:nth-child(4) { animation-delay: 0.20s; }
 
   .card-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
   .card { padding: 22px 20px; }
+
+  /* TOC tablet */
+  .toc-bab-label { padding: 16px 18px 12px; font-size: 1rem; }
+  .toc-link { padding: 11px 16px 11px 30px; }
+  .toc-link:hover { padding-left: 38px; }
+  .toc-title { font-size: 0.91rem; }
 
   .music-player { bottom: 20px; right: 18px; }
 }
@@ -745,6 +891,42 @@ section:nth-child(4) { animation-delay: 0.20s; }
   .card { padding: 20px 18px; border-radius: 18px; }
   .card h3 { font-size: 1rem; }
 
+  /* TOC HP */
+  .toc-bab-label {
+    padding: 14px 14px 10px;
+    font-size: 0.95rem;
+  }
+
+  .toc-link {
+    padding: 10px 12px 10px 22px;
+    border-radius: 10px;
+    flex-wrap: nowrap;
+  }
+
+  .toc-link:hover {
+    padding-left: 28px;
+  }
+
+  .toc-title {
+    font-size: 0.86rem;
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .toc-dots {
+    min-width: 12px;
+    margin: 0 6px;
+  }
+
+  .toc-page {
+    font-size: 0.85rem;
+    min-width: 18px;
+  }
+
+  .toc-group + .toc-group::before {
+    margin: 4px 14px;
+  }
+
   footer { padding: 40px 16px; }
   footer p { font-size: 0.87rem; }
 
@@ -765,4 +947,10 @@ section:nth-child(4) { animation-delay: 0.20s; }
   section > div { padding: 16px 14px 16px 18px; }
   .card { padding: 18px 15px; }
   nav a { font-size: 0.75rem; padding: 6px 9px; }
+
+  .toc-bab-label { font-size: 0.88rem; padding: 12px 12px 9px; }
+  .toc-link { padding: 9px 10px 9px 18px; }
+  .toc-link:hover { padding-left: 24px; }
+  .toc-title { font-size: 0.82rem; }
+  .toc-page { font-size: 0.80rem; }
 }
